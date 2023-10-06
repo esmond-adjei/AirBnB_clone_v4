@@ -161,6 +161,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 
 ## Authors (of current version)
 Esmond Adjei - [Github](https://github.com/esmond-adjei)/ [X (previously Twitter)](https://x.com/xmon_je9)
+Gregory Slippi-Mensah - [Github](https://github.com/GHMatrix)/ [X (previously Twitter)](https://x.com/Greg_Pro77)
 
 Second part of Airbnb: Joann Vuong
 ## License
