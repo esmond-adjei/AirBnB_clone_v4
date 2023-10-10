@@ -30,13 +30,14 @@
     <link rel="icon" href="../static/images/icon.png" />
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../static/scripts/1-hbnb.js?{{ cache_id }}"></script>
+    <script src="../static/scripts/100-hbnb.js?{{ cache_id }}"></script>
 
     <title>HBnB 1</title>
   </head>
   <body>
     <header>
       <div class="logo"></div>
+      <div id="api_status"></div>
     </header>
     <div class="container">
       <section class="filters">
@@ -44,13 +45,27 @@
           <h3>States</h3>
           <h4>&nbsp;</h4>
           <div class="popover">
-            <ul>
+            <ul class="states">
               {% for state in states %}
               <li>
+                <input
+                  type="checkbox"
+                  data-id=":state_id"
+                  data-name=":steate_name"
+                  style="position: absolute; left: 10px"
+                />
                 <h2>{{ state[0].name }}:</h2>
-                <ul>
+                <ul class="cities">
                   {% for city in state[1] %}
-                  <li>{{ city.name }}</li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      data-id=":city_id"
+                      data-name=":city_name"
+                      style="position: absolute; left: 10px"
+                    />
+                    {{ city.name }}
+                  </li>
                   {% endfor %}
                 </ul>
               </li>
@@ -62,7 +77,7 @@
           <h3>Amenities</h3>
           <h4>&nbsp;</h4>
           <div class="popover">
-            <ul>
+            <ul class="amenities">
               {% for amenity in amenities %}
               <li>
                 <input
@@ -80,35 +95,7 @@
         <button type="button">Search</button>
       </section>
       <div class="placesh1"><h1>Places</h1></div>
-      <section class="places">
-        <!-- <h1>Places</h1> -->
-        {% for place in places %}
-        <article>
-          <div class="title_box">
-            <h2>{{ place.name }}</h2>
-            <div class="price_by_night">${{ place.price_by_night }}</div>
-          </div>
-          <div class="information">
-            <div class="max_guest">
-              {{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif
-              %}
-            </div>
-            <div class="number_rooms">
-              {{ place.number_rooms }} Bedroom{% if place.number_rooms != 1
-              %}s{% endif %}
-            </div>
-            <div class="number_bathrooms">
-              {{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms
-              != 1 %}s{% endif %}
-            </div>
-          </div>
-          <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div>
-          <div class="description">{{ place.description | safe }}</div>
-        </article>
-        {% endfor %}
-      </section>
+      <section class="places"></section>
     </div>
     <footer>
       <p>Holberton School</p>
